@@ -1,0 +1,81 @@
+{
+  "name": "react-thumb-photo-gallery",
+  "version": "1.0.0",
+  "description": "photo thumb gallery with react",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "typings": "lib/index.d.ts",
+  "scripts": {
+    "build": "gulp",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PeterRock/React-Photo-Gallery.git"
+  },
+  "keywords": [
+    "react",
+    "photo",
+    "gallery",
+    "photoswipe"
+  ],
+  "author": "Peter",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PeterRock/React-Photo-Gallery/issues"
+  },
+  "homepage": "https://github.com/PeterRock/React-Photo-Gallery#readme",
+  "browserslist": [
+    "last 2 versions",
+    "> 1% in CN",
+    "Firefox ESR",
+    "ios >= 8",
+    "ie >= 9",
+    "not op_mob > 0",
+    "not op_mini > 0"
+  ],
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "photoswipe": "^4.1.2",
+    "prop-types": "^15.6.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.1.0",
+    "babel-runtime": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sassbeautify": "^0.1.0",
+    "gulp-sequence": "^1.0.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "postcss-apply": "^0.10.0",
+    "postcss-each": "^0.10.0",
+    "postcss-import": "^12.0.0",
+    "postcss-loader": "^2.1.6",
+    "postcss-mixins": "^6.2.0",
+    "postcss-nesting": "^6.0.0",
+    "postcss-reporter": "^5.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.6.3",
+    "classnames": "^2.2.6",
+    "photoswipe": "^4.1.2",
+    "prop-types": "^15.6.2"
+  }
+}

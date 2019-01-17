@@ -1,0 +1,27 @@
+.rpg-photo-gallery-wrapper {
+    overflow: hidden;
+}
+
+.rpg-photo-gallery {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.rpg-row {
+    flex-direction: row;
+}
+
+.rpg-column {
+    flex-direction: column;
+}
+
+.rpg-image-item-wrapper {
+    overflow: hidden;
+    cursor: pointer;
+    background: #efefef;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+/*# sourceMappingURL=index.css.map */

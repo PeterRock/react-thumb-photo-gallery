@@ -1,0 +1,32 @@
+{
+    "presets": [
+        "react",
+        [
+            "env",
+            {
+                "targets": {
+                    "browsers": [
+                        "last 2 versions",
+                        "> 1% in CN",
+                        "Firefox ESR",
+                        "ios >= 8",
+                        "ie >= 10",
+                        "not op_mob > 0",
+                        "not op_mini > 0"
+                    ]
+                }
+            }
+        ]
+    ],
+    "plugins": [
+        [
+            "transform-runtime",
+            {
+                "polyfill": true,
+                "loose": true
+            }
+        ],
+        "transform-class-properties",
+        "transform-object-rest-spread"
+    ]
+}

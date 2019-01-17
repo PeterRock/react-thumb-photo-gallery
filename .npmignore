@@ -1,0 +1,17 @@
+src/
+examples/
+coverage/
+test/
+
+.editorconfig
+.stylelintrc.js
+.eslintrc.js
+*.log
+yarn.lock
+commitlint.config.js
+gulpfile.js
+webpack.*
+
+!lib/
+!dist/
+!docs/
