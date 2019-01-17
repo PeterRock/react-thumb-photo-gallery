@@ -6,11 +6,8 @@
             {
                 "targets": {
                     "browsers": [
-                        "last 2 versions",
+                        "last 1 versions",
                         "> 1% in CN",
-                        "Firefox ESR",
-                        "ios >= 8",
-                        "ie >= 10",
                         "not op_mob > 0",
                         "not op_mini > 0"
                     ]
