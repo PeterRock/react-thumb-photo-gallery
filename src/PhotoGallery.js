@@ -93,10 +93,15 @@ PhotoGallery.propTypes = {
      * 图片缩略图间距
      */
     margin: PropTypes.number,
+    /**
+    * 图片资源地址前缀，常见于OSS
+    */
+    srcPrefix: PropTypes.string,
 }
 PhotoGallery.defaultProps = {
     photos: [],
     direction: 'row',
     size: 64,
     margin: undefined,
+    srcPrefix: undefined,
 }
