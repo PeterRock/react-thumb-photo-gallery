@@ -19,8 +19,10 @@ export default class PhotoGallery extends Component {
         this.setState({ showViewer: false })
     }
     handleImageLoad = (src, w, h) => {
+        const { srcPrefix } = this.props
         const { imageSet } = this.state
-        imageSet[src] = { src, w, h }
+        const srcFix = srcPrefix ? srcPrefix : ''
+        imageSet[src] = { src: `${srcFix}${src}`, w, h }
         this.setState({ imageSet })
     }
     handleImageClick = (src) => {

@@ -11,7 +11,9 @@ export default class ImageItem extends Component {
     }
 
     componentDidMount() {
-        this.imageHandler.src = this.props.src
+        const { srcPrefix } = this.props
+        const srcFix = srcPrefix ? srcPrefix : ''
+        this.imageHandler.src = `${srcFix}${this.props.src}`
     }
 
     componentWillUnmount() {
@@ -19,7 +21,7 @@ export default class ImageItem extends Component {
         this.imageHandler = null
     }
 
-    onImageLoad = (e) => {
+    onImageLoad = e => {
         const { src, onLoad } = this.props
         const height = e.target.naturalHeight
         const width = e.target.naturalWidth
@@ -34,22 +36,23 @@ export default class ImageItem extends Component {
     }
 
     render() {
-        const {
-            src, size, style, srcPrefix,
-        } = this.props
+        const { src, size, style, srcPrefix } = this.props
         const { image } = this.state
 
-        if (!image) {
-            return <div className="rpg-image-item-wrapper" style={{ width: size, height: size }} />
-        }
-
-        const srcFix = srcPrefix ? srcPrefix : ''
         const customStyle = {
             width: size,
             height: size,
-            backgroundImage: `url(${srcFix}${src})`,
             ...style,
         }
+
+        if (!image) {
+            return (
+                <div className="rpg-image-item-wrapper" style={customStyle} />
+            )
+        }
+
+        const srcFix = srcPrefix ? srcPrefix : ''
+        customStyle.backgroundImage = `url(${srcFix}${src})`
 
         return (
             <div
