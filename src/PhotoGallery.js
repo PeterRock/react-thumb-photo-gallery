@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import { combineUrlPath } from './util'
 import PhotoViewer from './PhotoViewer'
 import ImageItem from './ImageItem'
 import './index.css'
+
 
 export default class PhotoGallery extends Component {
     constructor(props) {
@@ -21,8 +23,7 @@ export default class PhotoGallery extends Component {
     handleImageLoad = (src, w, h) => {
         const { srcPrefix } = this.props
         const { imageSet } = this.state
-        const srcFix = srcPrefix ? srcPrefix : ''
-        imageSet[src] = { src: `${srcFix}${src}`, w, h }
+        imageSet[src] = { src: combineUrlPath(srcPrefix, src), w, h }
         this.setState({ imageSet })
     }
     handleImageClick = (src) => {

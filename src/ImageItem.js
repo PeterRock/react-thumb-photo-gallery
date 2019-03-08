@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { combineUrlPath } from './util'
 import './index.css'
 
 export default class ImageItem extends Component {
@@ -11,9 +12,8 @@ export default class ImageItem extends Component {
     }
 
     componentDidMount() {
-        const { srcPrefix } = this.props
-        const srcFix = srcPrefix ? srcPrefix : ''
-        this.imageHandler.src = `${srcFix}${this.props.src}`
+        const { srcPrefix, src } = this.props
+        this.imageHandler.src = combineUrlPath(srcPrefix, src)
     }
 
     componentWillUnmount() {
@@ -51,8 +51,7 @@ export default class ImageItem extends Component {
             )
         }
 
-        const srcFix = srcPrefix ? srcPrefix : ''
-        customStyle.backgroundImage = `url(${srcFix}${src})`
+        customStyle.backgroundImage = `url(${combineUrlPath(srcPrefix, src)})`
 
         return (
             <div
