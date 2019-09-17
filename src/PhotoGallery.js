@@ -36,7 +36,7 @@ export default class PhotoGallery extends Component {
 
     render() {
         const {
-            photos, direction = 'row', size = 64, margin, srcPrefix,
+            photos, direction = 'row', size = 64, width, height, margin, srcPrefix,
         } = this.props
         const { showViewer, index, imageSet } = this.state
         const cls = classNames({
@@ -65,6 +65,8 @@ export default class PhotoGallery extends Component {
                             src={src}
                             srcPrefix={srcPrefix}
                             size={size}
+                            width={width}
+                            height={height}
                             style={innerStyle}
                             onLoad={this.handleImageLoad}
                             onClick={this.handleImageClick}

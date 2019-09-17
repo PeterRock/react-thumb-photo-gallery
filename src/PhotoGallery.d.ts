@@ -14,6 +14,14 @@ export interface PhotoGalleryProps {
      */
     size: string | number
     /**
+     * 图片缩略图宽度
+     */
+    width: string | number
+    /**
+     * 图片缩略图高度
+     */
+    height: string | number
+    /**
      * 图片缩略图间距
      */
     margin: number

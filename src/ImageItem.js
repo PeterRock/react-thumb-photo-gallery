@@ -36,12 +36,12 @@ export default class ImageItem extends Component {
     }
 
     render() {
-        const { src, size, style, srcPrefix } = this.props
+        const { src, size, width, height, style, srcPrefix } = this.props
         const { image } = this.state
 
         const customStyle = {
-            width: size,
-            height: size,
+            width: width || size,
+            height: height || width || size,
             ...style,
         }
 
