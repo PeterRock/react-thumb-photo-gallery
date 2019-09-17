@@ -1,6 +1,6 @@
 import React from 'react'
 
-export interface PhotoGalleryProps {
+export interface PhotoThumbsProps {
     /**
      * 图片资源数组
      */
@@ -34,9 +34,9 @@ export interface PhotoGalleryProps {
 /**
  * Photo Gallery
  * @description
- * <PhotoGallery photos=['src1', 'src2] size={120} margin={4} />
+ * <PhotoThumbs photos=['src1', 'src2] size={120} margin={4} />
  */
-export default class PhotoGallery extends React.Component<
-    PhotoGalleryProps,
+export default class PhotoThumbs extends React.Component<
+    PhotoThumbsProps,
     any
 > {}

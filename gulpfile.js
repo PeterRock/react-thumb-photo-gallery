@@ -4,11 +4,7 @@ const gulp = require('gulp')
 const babel = require('gulp-babel')
 const postcss = require('gulp-postcss')
 const del = require('del')
-const gulpSequence = require('gulp-sequence')
-
-const minifycss = require('gulp-minify-css')
 const concat = require('gulp-concat')
-const rename = require('gulp-rename')
 const sourcemaps = require('gulp-sourcemaps')
 
 const postCssPlugins = [
@@ -35,7 +31,7 @@ gulp.task('lib-css', function() {
 })
 
 gulp.task('tsd', function() {
-    gulp.src('./src/**/*.d.ts').pipe(gulp.dest('./lib'))
+    return gulp.src('./src/**/*.d.ts').pipe(gulp.dest('./lib'))
 })
 
 gulp.task('js', function() {
@@ -45,10 +41,11 @@ gulp.task('js', function() {
         .pipe(gulp.dest('./lib'))
 })
 
-gulp.task('clean-lib', function() {
+gulp.task('clean-lib', function(done) {
     del.sync(['./lib'])
+    done()
 })
 
-gulp.task('lib', ['js', 'lib-css', 'tsd'])
+gulp.task('lib', gulp.parallel('js', 'lib-css', 'tsd'))
 
-gulp.task('default', gulpSequence('clean-lib', 'lib'))
+gulp.task('default', gulp.series('clean-lib', 'lib'))

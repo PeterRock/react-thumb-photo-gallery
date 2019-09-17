@@ -1,8 +1,8 @@
 {
     "presets": [
-        "react",
+        "@babel/react",
         [
-            "env",
+            "@babel/env",
             {
                 "targets": {
                     "browsers": [
@@ -16,14 +16,8 @@
         ]
     ],
     "plugins": [
-        [
-            "transform-runtime",
-            {
-                "polyfill": true,
-                "loose": true
-            }
-        ],
-        "transform-class-properties",
-        "transform-object-rest-spread"
+        "@babel/plugin-proposal-class-properties",
+        "@babel/plugin-proposal-object-rest-spread",
+        "babel-plugin-transform-remove-console"
     ]
 }
