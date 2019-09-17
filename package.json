@@ -1,6 +1,6 @@
 {
   "name": "react-thumb-photo-gallery",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "photo thumb gallery with react",
   "main": "lib/index.js",
   "files": [
@@ -68,6 +68,6 @@
     "postcss-reporter": "^6.0.1"
   },
   "peerDependencies": {
-    "react": "^15.2.0"
+    "react": ">15.2.0"
   }
 }
