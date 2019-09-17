@@ -13,7 +13,7 @@ So `PhotoGallery` load images' information and display them as thumbnails.
 
 ## Components
 
-#### 1. PhotoGallery
+#### 1. PhotoGallery/PhotoThumbs
 
 ```javascript
 import PhotoGallery from 'react-thumb-photo-gallery'
@@ -45,3 +45,5 @@ import { PhotoViewer } from 'react-thumb-photo-gallery'
 | items     | Array[{src, w, h}] | undefined | Image data set                          |
 | options   | Object             | {}        | Props  reference photos props: [Link](https://photoswipe.com/documentation/options.html)   |
 
+#### Demo
+[Photo Gallery Demo](https://codesandbox.io/embed/1459j2ponj?fontsize=14)
