@@ -2,7 +2,7 @@
 [![npm version](https://badge.fury.io/js/react-thumb-photo-gallery.svg)](https://badge.fury.io/js/react-thumb-photo-gallery)
 
 `react-thumb-photo-gallery` solve two problems:
-1. first display image thumbs
+1. display image thumbs
 
 ![screenshoot](./docs/photo-thumbs.png)
 
