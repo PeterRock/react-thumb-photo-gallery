@@ -11,7 +11,7 @@
 ![screenshoot](./docs/photo-gallery.gif)
 
 #### Online Demo
-[Photo Gallery Demo](https://codesandbox.io/embed/1459j2ponj?fontsize=14)
+[![Edit react-thumb-photo-gallery-demo](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-thumb-photo-gallery-demo-ibbvf?autoresize=1&fontsize=14&view=preview)
 
 ### Usage
 
