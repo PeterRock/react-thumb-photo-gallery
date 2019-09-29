@@ -1,23 +1,46 @@
 # React-Photo-Gallery
+[![npm version](https://badge.fury.io/js/react-thumb-photo-gallery.svg)](https://badge.fury.io/js/react-thumb-photo-gallery)
 
-`PhotoViewer` is based on [photoswipe](https://github.com/dimsemenov/PhotoSwipe), which only works with correct width and height of images, but you has no info for this when you get images just from urls.
+`react-thumb-photo-gallery` solve two problems:
+1. first display image thumbs
 
-So `PhotoGallery` load images' information and display them as thumbnails.
+![screenshoot](./docs/photo-thumbs.png)
 
-`PhotoThumbs` only display photo thumbs without photoswipe, for small package size.
+2. view original picture after click the thumb image
+![screenshoot](./docs/photo-gallery.gif)
 
-### Screenshoot
+#### Online Demo
+[Photo Gallery Demo](https://codesandbox.io/embed/1459j2ponj?fontsize=14)
 
-![screenshoot](./docs/screenshoot.gif)
+### Usage
+
+1. PhotoGallery
+```
+import PhotoGallery from 'react-thumb-photo-gallery'
+
+<PhotoGallery photos={photos} margin={6} radius={4} />
+```
+
+2. PhotoThumbs
+```
+import { PhotoThumbs } from 'react-thumb-photo-gallery'
+
+<PhotoThumbs photos={photos} margin={6} radius={4} />
+```
+
+`PhotoThumbs` only handle thumbs without `photoswipe` integration, so it has smaller package size.
+
+### What this package did
+
+`PhotoViewer` is based on [photoswipe](https://github.com/dimsemenov/PhotoSwipe).
+First is solve image original size, `photoswipe` only works with correct width and height of images. Unfortunately, we always don't have the image original size.
+
+Second is layout style, thumb have margin between others, and there wrapper cannot take more space.
 
 
 ## Components
 
 #### 1. PhotoGallery/PhotoThumbs
-
-```javascript
-import PhotoGallery from 'react-thumb-photo-gallery'
-```
 
 **Props**
 
@@ -30,9 +53,14 @@ import PhotoGallery from 'react-thumb-photo-gallery'
 | direction | 'row' \| 'column' | 'row'     | Thumbnail Direction                    |
 | margin    | Number            | undefined | Thumbnail margin                       |
 | srcPrefix | String            | undefined | Add prefix string for each photo src |
-
+| imagePlaceholder | String            | undefined | default image for gallery item |
+| itemClass | String            | undefined | add class for gallery item |
+| radius | String            | undefined | quick set image border-radius, such as `4` or `'4px'` |
+| expandAnimate | boolean       | undefined | only for PhotoGallery, make preview animation start from thumb position |
 
 #### 2. PhotoViewer
+
+`PhotoViewer` is just the wrapper of photoswip for react
 
 ```javascript
 import { PhotoViewer } from 'react-thumb-photo-gallery'
@@ -44,6 +72,3 @@ import { PhotoViewer } from 'react-thumb-photo-gallery'
 | --------- | ------------------ | --------- | --------------------------------------- |
 | items     | Array[{src, w, h}] | undefined | Image data set                          |
 | options   | Object             | {}        | Props  reference photos props: [Link](https://photoswipe.com/documentation/options.html)   |
-
-#### Demo
-[Photo Gallery Demo](https://codesandbox.io/embed/1459j2ponj?fontsize=14)
