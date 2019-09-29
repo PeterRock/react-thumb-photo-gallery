@@ -48,6 +48,7 @@ export default class ImageItem extends Component {
             onClick,
             imagePlaceholder,
             radius,
+            getItemRef,
         } = this.props
         const { image } = this.state
 
@@ -62,19 +63,13 @@ export default class ImageItem extends Component {
             if (imagePlaceholder) {
                 customStyle.backgroundImage = `url(${imagePlaceholder})`
             }
-
-            return (
-                <div
-                    className={classNames(className, 'rpg-image-item-wrapper')}
-                    style={customStyle}
-                />
-            )
+        } else {
+            customStyle.backgroundImage = `url(${combineUrlPath(srcPrefix, src)})`
         }
-
-        customStyle.backgroundImage = `url(${combineUrlPath(srcPrefix, src)})`
 
         return (
             <div
+                ref={getItemRef}
                 className={classNames(className, 'rpg-image-item-wrapper', {
                     'image-item-clickable': !!onClick,
                 })}

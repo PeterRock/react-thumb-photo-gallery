@@ -41,6 +41,10 @@ export interface PhotoGalleryProps {
      * 图片圆角
      */
     radius: string | number
+    /**
+     * 从点击图片处展开预览
+     */
+    expandAnimate: boolean
 }
 
 /**

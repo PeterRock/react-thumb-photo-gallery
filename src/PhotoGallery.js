@@ -13,6 +13,7 @@ export default class PhotoGallery extends Component {
             index: 0,
             imageSet: {},
         }
+        this.imagesEl = {}
     }
 
     onViewerClose = () => {
@@ -32,6 +33,19 @@ export default class PhotoGallery extends Component {
         })
     }
 
+    getThumbBoundsFn = (index) => {
+        const src = (this.props.photos || [])[index]
+        const ele = this.imagesEl[src]
+        if (!ele) return undefined
+        const rect = (ele.getBoundingClientRect()) || {}
+        const pageYScroll = window.pageYOffset || document.documentElement.scrollTop
+        return {
+            x: rect.left,
+            y: rect.top + pageYScroll,
+            w: rect.width,
+        }
+    }
+
     render() {
         const {
             photos,
@@ -44,6 +58,7 @@ export default class PhotoGallery extends Component {
             imagePlaceholder,
             itemClass,
             radius,
+            expandAnimate,
         } = this.props
         const { showViewer, index, imageSet } = this.state
         const cls = classNames({
@@ -62,12 +77,14 @@ export default class PhotoGallery extends Component {
 
         // 计算当前图册数据
         const gallery = (photos || []).map(src => imageSet[src])
+        const getThumbBoundsFn = expandAnimate ? this.getThumbBoundsFn : undefined
 
         return (
             <div className="rpg-photo-gallery-wrapper">
                 <div className={cls} style={style}>
                     {(photos || []).map(src => (
                         <ImageItem
+                            getItemRef={(ref) => { this.imagesEl[src] = ref }}
                             key={src}
                             src={src}
                             srcPrefix={srcPrefix}
@@ -85,7 +102,7 @@ export default class PhotoGallery extends Component {
                 </div>
                 {showViewer && (
                     <PhotoViewer
-                        options={{ index }}
+                        options={{ index, getThumbBoundsFn }}
                         items={gallery}
                         onClose={this.onViewerClose}
                     />
