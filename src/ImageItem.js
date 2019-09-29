@@ -36,7 +36,7 @@ export default class ImageItem extends Component {
     }
 
     render() {
-        const { src, size, width, height, style, srcPrefix } = this.props
+        const { src, size, width, height, style, srcPrefix, onClick, defaultImage } = this.props
         const { image } = this.state
 
         const customStyle = {
@@ -46,6 +46,10 @@ export default class ImageItem extends Component {
         }
 
         if (!image) {
+            if (defaultImage) {
+                customStyle.backgroundImage = `url(${defaultImage})`
+            }
+
             return (
                 <div className="rpg-image-item-wrapper" style={customStyle} />
             )
@@ -55,7 +59,9 @@ export default class ImageItem extends Component {
 
         return (
             <div
-                className="rpg-image-item-wrapper"
+                className={classNames("rpg-image-item-wrapper", {
+                    'image-item-clickable': !!onClick
+                })}
                 style={customStyle}
                 onClick={this.handleClick}
             />

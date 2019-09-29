@@ -10,7 +10,7 @@ import './index.css'
 export default class PhotoThumbs extends Component {
     render() {
         const {
-            photos, direction = 'row', size = 64, width, height, margin, srcPrefix,
+            photos, direction = 'row', size = 64, width, height, margin, srcPrefix, defaultImage,
         } = this.props
         const cls = classNames({
             'rpg-photo-gallery': true,
@@ -38,6 +38,7 @@ export default class PhotoThumbs extends Component {
                             width={width}
                             height={height}
                             style={innerStyle}
+                            defaultImage={defaultImage}
                         />
                     ))}
                 </div>

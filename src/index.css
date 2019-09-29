@@ -17,9 +17,12 @@
 
 .rpg-image-item-wrapper {
     overflow: hidden;
-    cursor: pointer;
     background: #efefef;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+}
+
+.clickable {
+    cursor: pointer;
 }
