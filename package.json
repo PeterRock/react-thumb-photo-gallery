@@ -1,6 +1,6 @@
 {
   "name": "react-thumb-photo-gallery",
-  "version": "1.0.11",
+  "version": "1.0.14",
   "description": "photo thumb gallery with react",
   "main": "lib/index.js",
   "files": [
