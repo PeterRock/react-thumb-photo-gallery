@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { combineUrlPath } from './util'
 import PhotoViewer from './PhotoViewer'
@@ -96,32 +95,6 @@ export default class PhotoGallery extends Component {
     }
 }
 
-PhotoGallery.propTypes = {
-    /**
-     * 图片资源数组
-     */
-    photos: PropTypes.arrayOf(PropTypes.string),
-    /**
-     * 图片排列方向
-     */
-    direction: PropTypes.oneOf(['row', 'column']),
-    /**
-     * 图片缩略图大小
-     */
-    size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    /**
-     * 图片缩略图间距
-     */
-    margin: PropTypes.number,
-    /**
-     * 图片资源地址前缀，常见于OSS
-     */
-    srcPrefix: PropTypes.string,
-    /**
-     * 默认占位图片
-     */
-    imagePlaceholder: PropTypes.string,
-}
 PhotoGallery.defaultProps = {
     photos: [],
     direction: 'row',

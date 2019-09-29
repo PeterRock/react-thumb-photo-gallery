@@ -33,6 +33,14 @@ export interface PhotoGalleryProps {
      * 默认占位图片
      */
     imagePlaceholder: string
+    /**
+     * 图片样式
+     */
+    itemClass: string
+    /**
+     * 图片圆角
+     */
+    radius: string | number
 }
 
 /**
