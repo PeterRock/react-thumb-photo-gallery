@@ -7,6 +7,7 @@
 ![screenshoot](./docs/photo-thumbs.png)
 
 2. view original picture after click the thumb image
+
 ![screenshoot](./docs/photo-gallery.gif)
 
 #### Online Demo
