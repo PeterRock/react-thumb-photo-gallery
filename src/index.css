@@ -23,6 +23,6 @@
     background-size: cover;
 }
 
-.clickable {
+.image-item-clickable {
     cursor: pointer;
 }

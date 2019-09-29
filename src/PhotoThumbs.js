@@ -10,7 +10,7 @@ import './index.css'
 export default class PhotoThumbs extends Component {
     render() {
         const {
-            photos, direction = 'row', size = 64, width, height, margin, srcPrefix, defaultImage,
+            photos, direction = 'row', size = 64, width, height, margin, srcPrefix, imagePlaceholder, itemClass, radius,
         } = this.props
         const cls = classNames({
             'rpg-photo-gallery': true,
@@ -38,7 +38,9 @@ export default class PhotoThumbs extends Component {
                             width={width}
                             height={height}
                             style={innerStyle}
-                            defaultImage={defaultImage}
+                            imagePlaceholder={imagePlaceholder}
+                            radius={radius}
+                            className={itemClass}
                         />
                     ))}
                 </div>
@@ -67,7 +69,11 @@ PhotoThumbs.propTypes = {
     /**
     * 图片资源地址前缀，常见于OSS
     */
-    srcPrefix: PropTypes.string,
+   srcPrefix: PropTypes.string,
+    /**
+    * 默认占位图片
+    */
+   imagePlaceholder: PropTypes.string,
 }
 PhotoThumbs.defaultProps = {
     photos: [],
@@ -75,4 +81,5 @@ PhotoThumbs.defaultProps = {
     size: 64,
     margin: undefined,
     srcPrefix: undefined,
+    imagePlaceholder: undefined,
 }

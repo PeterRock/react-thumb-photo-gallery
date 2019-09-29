@@ -29,6 +29,10 @@ export interface PhotoThumbsProps {
      * 图片资源地址前缀，常见于OSS
      */
     srcPrefix: string
+    /**
+     * 默认占位图片
+     */
+    imagePlaceholder: string
 }
 
 /**

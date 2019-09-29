@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 import { combineUrlPath } from './util'
 import './index.css'
 
@@ -36,22 +37,37 @@ export default class ImageItem extends Component {
     }
 
     render() {
-        const { src, size, width, height, style, srcPrefix, onClick, defaultImage } = this.props
+        const {
+            className,
+            src,
+            size,
+            width,
+            height,
+            style,
+            srcPrefix,
+            onClick,
+            imagePlaceholder,
+            radius,
+        } = this.props
         const { image } = this.state
 
         const customStyle = {
             width: width || size,
             height: height || width || size,
+            borderRadius: radius,
             ...style,
         }
 
         if (!image) {
-            if (defaultImage) {
-                customStyle.backgroundImage = `url(${defaultImage})`
+            if (imagePlaceholder) {
+                customStyle.backgroundImage = `url(${imagePlaceholder})`
             }
 
             return (
-                <div className="rpg-image-item-wrapper" style={customStyle} />
+                <div
+                    className={classNames(className, 'rpg-image-item-wrapper')}
+                    style={customStyle}
+                />
             )
         }
 
@@ -59,8 +75,8 @@ export default class ImageItem extends Component {
 
         return (
             <div
-                className={classNames("rpg-image-item-wrapper", {
-                    'image-item-clickable': !!onClick
+                className={classNames(className, 'rpg-image-item-wrapper', {
+                    'image-item-clickable': !!onClick,
                 })}
                 style={customStyle}
                 onClick={this.handleClick}

@@ -6,7 +6,6 @@ import PhotoViewer from './PhotoViewer'
 import ImageItem from './ImageItem'
 import './index.css'
 
-
 export default class PhotoGallery extends Component {
     constructor(props) {
         super(props)
@@ -26,7 +25,7 @@ export default class PhotoGallery extends Component {
         imageSet[src] = { src: combineUrlPath(srcPrefix, src), w, h }
         this.setState({ imageSet })
     }
-    handleImageClick = (src) => {
+    handleImageClick = src => {
         const { photos } = this.props
         this.setState({
             showViewer: true,
@@ -36,7 +35,16 @@ export default class PhotoGallery extends Component {
 
     render() {
         const {
-            photos, direction = 'row', size = 64, width, height, margin, srcPrefix,
+            photos,
+            direction = 'row',
+            size = 64,
+            width,
+            height,
+            margin,
+            srcPrefix,
+            imagePlaceholder,
+            itemClass,
+            radius,
         } = this.props
         const { showViewer, index, imageSet } = this.state
         const cls = classNames({
@@ -70,11 +78,18 @@ export default class PhotoGallery extends Component {
                             style={innerStyle}
                             onLoad={this.handleImageLoad}
                             onClick={this.handleImageClick}
+                            imagePlaceholder={imagePlaceholder}
+                            className={itemClass}
+                            radius={radius}
                         />
                     ))}
                 </div>
                 {showViewer && (
-                    <PhotoViewer options={{ index }} items={gallery} onClose={this.onViewerClose} />
+                    <PhotoViewer
+                        options={{ index }}
+                        items={gallery}
+                        onClose={this.onViewerClose}
+                    />
                 )}
             </div>
         )
@@ -99,9 +114,13 @@ PhotoGallery.propTypes = {
      */
     margin: PropTypes.number,
     /**
-    * 图片资源地址前缀，常见于OSS
-    */
+     * 图片资源地址前缀，常见于OSS
+     */
     srcPrefix: PropTypes.string,
+    /**
+     * 默认占位图片
+     */
+    imagePlaceholder: PropTypes.string,
 }
 PhotoGallery.defaultProps = {
     photos: [],
@@ -109,4 +128,5 @@ PhotoGallery.defaultProps = {
     size: 64,
     margin: undefined,
     srcPrefix: undefined,
+    imagePlaceholder: undefined,
 }
